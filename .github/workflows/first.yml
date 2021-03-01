@@ -25,7 +25,7 @@ jobs:
           -backend-config="bucket=jina-tf-states"
           -backend-config="region=us-east-1"
           -backend-config="key=${{ github.event.inputs.TFID }}"
-          working-directory: ./daemon-deployment
+        working-directory: ./daemon-deployment
 
       - run: terraform output
         working-directory: ./daemon-deployment
