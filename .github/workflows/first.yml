@@ -1,6 +1,11 @@
 name: 'Test job'
 
-on: workflow_dispatch
+on: 
+  workflow_dispatch:
+    inputs:
+      TFID:
+        description: 'Pass the TFID for the deployment data to be fetched'
+        required: true
 
 jobs:
   new-job:
