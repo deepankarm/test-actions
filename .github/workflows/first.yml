@@ -22,6 +22,8 @@ jobs:
 
       - run: |
           export TF_LOG=trace
+          which terraform
+          terraform version
           terraform init -force-copy -backend-config="bucket=jina-tf-states" -backend-config="region=us-east-1" -backend-config="key=${{ github.event.inputs.TFID }}"
         working-directory: ./daemon-deployment
 
