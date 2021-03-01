@@ -20,11 +20,9 @@ jobs:
           aws-region: us-east-1
       - uses: hashicorp/setup-terraform@v1
 
-      - run: >
-          terraform init -force-copy
-          -backend-config="bucket=jina-tf-states"
-          -backend-config="region=us-east-1"
-          -backend-config="key=${{ github.event.inputs.TFID }}"
+      - run: |
+          export TF_LOG=trace
+          terraform init -force-copy -backend-config="bucket=jina-tf-states" -backend-config="region=us-east-1" -backend-config="key=${{ github.event.inputs.TFID }}"
         working-directory: ./daemon-deployment
 
       - run: terraform output
