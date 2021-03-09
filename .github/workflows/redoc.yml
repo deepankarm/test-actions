@@ -20,8 +20,8 @@ jobs:
       - run: |
           pip install .[daemon] --no-cache-dir
           python scripts/get-gateway-openapi.py
-          npm install --prefix . snippet-enricher-cli
-          ./node_modules/.bin/snippet-enricher-cli --input=gateway.json --targets=shell_curl > openapi-with-examples.json
+          npm install --prefix ~ snippet-enricher-cli
+          ~/node_modules/.bin/snippet-enricher-cli --input=gateway.json --targets=shell_curl > openapi-with-examples.json
           cat openapi-with-examples.json
       - name: redoc-cli-gateway
         uses: seeebiii/redoc-cli-github-action@v10
