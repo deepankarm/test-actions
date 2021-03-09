@@ -1,0 +1,25 @@
+name: Redoc tests
+
+on:
+  workflow_dispatch:
+
+
+jobs:
+  update-docs:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          repository: jina-ai/jina
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - run: |
+          python scripts/get-gateway-openapi.py
+      - name: redoc-cli-gateway
+        uses: seeebiii/redoc-cli-github-action@v10
+        with:
+          args: 'bundle gateway.json -o rest.html'
