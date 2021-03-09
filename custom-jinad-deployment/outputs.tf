@@ -18,5 +18,5 @@ output "jinad_dns" {
 
 output "jinad_private_key" {
   description = "Private key for debugging"
-  value       = module.jinad.private_key_pem
+  value       =  module.jinad.private_key_pem
 }
