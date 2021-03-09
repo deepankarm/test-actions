@@ -18,6 +18,7 @@ jobs:
         with:
           node-version: '14'
       - run: |
+          pip install .[daemon] --no-cache-dir
           python scripts/get-gateway-openapi.py
       - name: redoc-cli-gateway
         uses: seeebiii/redoc-cli-github-action@v10
