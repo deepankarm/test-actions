@@ -1,6 +1,7 @@
 name: Changed file in an array
 
 on:
+  pull_request:
   workflow_dispatch:
 
 
