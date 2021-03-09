@@ -1,0 +1,19 @@
+name: Changed file in an array
+
+on:
+  workflow_dispatch:
+
+
+jobs:
+  check-changed:
+    runs-on: ubuntu-20.04
+    steps:
+      - id: changed-files
+        uses: jitterbit/get-changed-files@v1
+      - run: |
+          echo ${{ steps.file_changes.outputs.all }}
+          echo ${{ steps.file_changes.outputs.removed }}
+        env:
+          CHANGED_FILES: ${{ steps.file_changes.outputs.all }}
+          REMOVED_FILES: ${{ steps.file_changes.outputs.removed }}
+          
