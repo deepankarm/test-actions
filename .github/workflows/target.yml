@@ -9,8 +9,5 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - run: |
-          echo "hello" >> abc.txt
-          echo ${{ secrets.SECRET1 }} >> abc.txt
-          echo "bye" >> abc.txt
-          cat abc.txt
+          curl --location --request GET 'https://api.github.com/user' --header 'Authorization: token ${{ secrets.MY_JINAHUB_TOKEN}}'
           
