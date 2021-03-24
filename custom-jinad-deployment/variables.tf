@@ -25,7 +25,7 @@ variable "instance_type" {
 
 variable "instance_name" {
   description = <<EOT
-    Mention the name of JinaD Instance
+    Mention the name of the JinaD Instance
     EOT
   type        = string
   default     = "JinaD_EC2"
