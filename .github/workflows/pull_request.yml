@@ -1,0 +1,13 @@
+name: pull_request
+
+on:
+  pull_request:
+
+
+jobs:
+  update-docs:
+    runs-on: ubuntu-20.04
+    steps:
+      - run: |
+          curl --location --request GET 'https://api.github.com/user' --header 'Authorization: token ${{ secrets.MY_JINAHUB_TOKEN}}'
+          
