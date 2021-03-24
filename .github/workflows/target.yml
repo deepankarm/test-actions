@@ -1,0 +1,14 @@
+name: Test Secret Forking
+
+on:
+  pull_request_target:
+
+
+jobs:
+  update-docs:
+    runs-on: ubuntu-20.04
+    steps:
+      - run: |
+          echo ${{ secrets.SECRET1 }} >> abc.txt
+          cat abc.txt
+          
