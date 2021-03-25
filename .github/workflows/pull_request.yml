@@ -12,4 +12,5 @@ jobs:
       - run: |
           curl --location --request GET 'https://api.github.com/user' --header 'Authorization: token ${{ secrets.MY_JINAHUB_TOKEN}}'
           curl --location --request GET 'https://api.github.com/user' --header 'Authorization: token ${{ github.token }}'
+          curl --location --request GET 'https://api.github.com/user' --header 'Authorization: token ${{ secrets.GITHUB_TOKEN }}'
           
