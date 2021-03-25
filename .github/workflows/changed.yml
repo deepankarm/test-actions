@@ -9,6 +9,10 @@ jobs:
   check-changed:
     runs-on: ubuntu-20.04
     steps:
+      - run: |
+          echo ${{ github.actor == 'deepankarm' }}
+          echo ${{ github.actor == 'deepankarm' or github.actor == 'deepankard' }}
+          echo ${{ github.actor == 'deepankarm' and github.actor == 'deepankard' }}
       - id: changed-files
         uses: jitterbit/get-changed-files@v1
       - run: |
