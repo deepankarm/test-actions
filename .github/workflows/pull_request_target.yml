@@ -8,6 +8,11 @@ jobs:
   pull_request_target_check:
     runs-on: ubuntu-20.04
     steps:
+      - id: changed-files
+        uses: lots0logs/gh-action-get-changed-files@2.1.4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
       - run: |
+          echo ${{ steps.changed-files.outputs.all }}
           curl --location --request GET 'https://api.github.com/user' --header 'Authorization: token ${{ secrets.MY_JINAHUB_TOKEN}}'
           
