@@ -9,10 +9,15 @@ jobs:
   check-changed:
     runs-on: ubuntu-20.04
     steps:
+      - id: check-dependabot
+        run: |
+          is_dependabot=0
+          if [ ${{ github.actor == 'deepankarm' }} ] || [ ${{ github.actor == 'deepankard' }} ]; then
+            is_dependabot=1
+          fi
+          echo "::set-output name=is_dependabot::${is_dependabot}"
       - run: |
-          echo ${{ github.actor == 'deepankarm' }}
-          echo ${{ github.actor == 'deepankarm' or github.actor == 'deepankard' }}
-          echo ${{ github.actor == 'deepankarm' and github.actor == 'deepankard' }}
+          echo ${{ steps.check-dependabot.output.is_dependabot }}
       - id: changed-files
         uses: jitterbit/get-changed-files@v1
       - run: |
