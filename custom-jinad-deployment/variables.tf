@@ -9,7 +9,7 @@ variable "TFID" {
 
 variable "region" {
   description = <<EOT
-    Mention the Region where all resources are going to get created
+    Mention the Region where all resources are going to get  created
     EOT
   type        = string
   default     = "us-east-1"
