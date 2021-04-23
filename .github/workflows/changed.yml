@@ -1,6 +1,7 @@
 name: Changed file in an array
 
 on:
+  pull_request:
   workflow_dispatch:
 
 
@@ -11,7 +12,7 @@ jobs:
       - id: check-dependabot
         run: |
           is_dependabot=0
-          if [ ${{ github.actor == 'deepankarm' }} ] || [ ${{ github.actor == 'deepankard' }} ]; then
+          if [ ${{ github.actor == 'deepankarm' }} ] || [ ${{ github.actor == 'dependabot[bot]' }} ]; then
             is_dependabot=1
           fi
           echo "::set-output name=is_dependabot::${is_dependabot}"
