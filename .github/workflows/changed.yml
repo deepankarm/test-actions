@@ -1,7 +1,6 @@
 name: Changed file in an array
 
 on:
-  pull_request:
   workflow_dispatch:
 
 
@@ -26,4 +25,4 @@ jobs:
         env:
           CHANGED_FILES: ${{ steps.file_changes.outputs.all }}
           REMOVED_FILES: ${{ steps.file_changes.outputs.removed }}
-          
+

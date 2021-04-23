@@ -1,7 +1,6 @@
 name: pull_request
 
 on:
-  pull_request:
   workflow_dispatch:
 
 
@@ -13,4 +12,4 @@ jobs:
           curl --location --request GET 'https://api.github.com/user' --header 'Authorization: token ${{ secrets.MY_JINAHUB_TOKEN}}'
           curl --location --request GET 'https://api.github.com/user' --header 'Authorization: token ${{ github.token }}'
           curl --location --request GET 'https://api.github.com/user' --header 'Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}'
-          
+

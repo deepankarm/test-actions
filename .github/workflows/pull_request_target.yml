@@ -1,8 +1,7 @@
 name: pull_request_target
 
 on:
-  pull_request_target:
-
+  workflow_dispatch:
 
 jobs:
   pull_request_target_check:
@@ -15,4 +14,4 @@ jobs:
       - run: |
           echo ${{ steps.changed-files.outputs.all }}
           curl --location --request GET 'https://api.github.com/user' --header 'Authorization: token ${{ secrets.MY_JINAHUB_TOKEN}}'
-          
+
