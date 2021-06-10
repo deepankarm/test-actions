@@ -12,5 +12,6 @@ jobs:
           apt-get update && apt-get install curl
           docker pull python
           docker run --name test -p 8000:8000 -d python python -m http.server
+          sleep 2
           curl localhost:8000
           
