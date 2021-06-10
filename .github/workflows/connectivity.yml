@@ -11,7 +11,7 @@ jobs:
         run: |
           apt-get update && apt-get install curl
           docker pull python
-          docker run --add-host host.docker.internal:host-gateway --name test -p 8000:8000 -d python python -m http.server
+          docker run --add-host host.docker.internal:host-gateway --name test -v /var/run/docker.sock:/var/run/docker.sock -v /tmp/jinad:/tmp/jinad -p 8000:8000 -d python python -m http.server
           sleep 2
           curl localhost:8000
           
