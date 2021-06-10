@@ -1,4 +1,4 @@
-name: CI
+name: Connectivity
 
 on:
   workflow_dispatch:
