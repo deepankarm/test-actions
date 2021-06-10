@@ -1,0 +1,16 @@
+name: CI
+
+on:
+  workflow_dispatch:
+  
+jobs:
+  connect:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: test connection
+        run: |
+          apt-get update && apt-get install curl
+          docker pull python
+          docker run --name test -p 8000:8000 -d python python -m http.server
+          curl localhost:8000
+          
