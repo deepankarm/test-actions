@@ -2,6 +2,10 @@ name: Generate
 
 on:
   workflow_dispatch:
+    inputs:
+      release_reason:
+        description: 'Short reason for this manual release'
+        required: true
 
 jobs:
   generate:
@@ -29,7 +33,7 @@ jobs:
         with:
           tag_name: ${{ steps.semvers.outputs.patch }}
           release_name: Release ${{ steps.semvers.outputs.patch }}
-          body: Release ${{ steps.semvers.outputs.patch }}
+          body: ${{ github.event.inputs.release_reason }}
           draft: false
           prerelease: false
           
