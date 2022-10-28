@@ -23,7 +23,7 @@ jobs:
           custom_payload: |
             {
               attachments: [{
-                text: `Who took over the CI? :point_right: ${process.env.AS_AUTHOR} Branch: ${{ github.event.inputs.branch }}`,
+                text: `:jcloud: Operator Tests \n Who took over the CI? :point_right: ${process.env.AS_AUTHOR} \nBranch :point_right: ${{ github.event.inputs.branch }}`,
               }]
             }
         env:
