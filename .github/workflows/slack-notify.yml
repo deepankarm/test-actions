@@ -18,6 +18,7 @@ jobs:
       - name: Slack Notification
         uses: 8398a7/action-slack@v3
         with:
+          status: green
           fields: workflow,job,commit,repo,ref,author,took
           custom_payload: |
             {
