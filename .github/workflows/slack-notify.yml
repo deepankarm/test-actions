@@ -1,4 +1,4 @@
-name: Deploy stuff
+name: Slack notify
 
 on:
   workflow_dispatch:
