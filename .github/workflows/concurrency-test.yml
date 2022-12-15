@@ -20,8 +20,8 @@ jobs:
           sudo apt-get install jq
           var=["private_executors_test.go storage_test.go multiprotocol_gateway_test.go","custom_name_invalid_test.go custom_name_valid_test.go basic_websocket_test.go","multiple_shards_replicas_test.go labels_test.go pod_crash_error_test.go","custom_dns_test.go delete_flows_test.go get_flows_test.go","autoscale_test.go basic_grpc_test.go pod_oom_error_test.go","jina_version_test.go basic_http_test.go filter_flows_by_labels_test.go","resources_test.go"]
           echo "::set-output name=matrix::$var"
-        outputs:
-          matrix: ${{ steps.set-matrix.outputs.matrix }}
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
       
   operator:
     needs: prep-testbed-operator
