@@ -9,8 +9,8 @@ on:
         default: main
       num_tests_in_group:
         description: Number of tests in a group (default 4)
-        type: string
-        default: '4'
+        type: number
+        default: 4
         required: false
 
 jobs:
@@ -31,7 +31,7 @@ jobs:
     needs: prep-testbed
     runs-on: ubuntu-latest
     strategy:
-      max-parallel: 2
+      max-parallel: ${{ github.event.inputs.num_tests_in_group }}
       fail-fast: false
       matrix:
         test-path: ${{fromJson(needs.prep-testbed.outputs.matrix)}}
