@@ -24,7 +24,7 @@ jobs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
       
   operator:
-    needs: prep-testbed-operator
+    needs: prep-testbed
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
