@@ -30,10 +30,8 @@ jobs:
   operator:
     needs: prep-testbed
     runs-on: ubuntu-latest
-    concurrency:
-      group: operator-${{ github.event.inputs.branch }}
-      cancel-in-progress: false
     strategy:
+      max-parallel: 2
       fail-fast: false
       matrix:
         test-path: ${{fromJson(needs.prep-testbed.outputs.matrix)}}
