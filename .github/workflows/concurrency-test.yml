@@ -39,3 +39,5 @@ jobs:
       - name: echo matrix
         run: |
           echo ${{ matrix.test-path }}
+          sleep 10
+          echo Done sleeping
