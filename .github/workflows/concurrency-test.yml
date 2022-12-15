@@ -31,7 +31,7 @@ jobs:
     needs: prep-testbed
     runs-on: ubuntu-latest
     strategy:
-      max-parallel: ${{ github.event.inputs.num_tests_in_group }}
+      max-parallel: 2
       fail-fast: false
       matrix:
         test-path: ${{fromJson(needs.prep-testbed.outputs.matrix)}}
