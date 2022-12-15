@@ -3,6 +3,10 @@ name: Job concurrency
 on:
   workflow_dispatch:
     inputs:
+      branch:
+        description: Pass the jina-operator branch
+        required: true
+        default: main
       num_tests_in_group:
         description: Number of tests in a group (default 4)
         type: string
@@ -26,6 +30,9 @@ jobs:
   operator:
     needs: prep-testbed
     runs-on: ubuntu-latest
+    concurrency:
+      group: operator-${{ github.event.inputs.branch }}
+      cancel-in-progress: false
     strategy:
       fail-fast: false
       matrix:
