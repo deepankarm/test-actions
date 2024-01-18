@@ -1,0 +1,15 @@
+name: "helm release"
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          repository: jina-ai/jina-operator
+          ref: refs/tags/v0.0.12
+          token: ${{ secrets.JINA_REPOS_TOKEN }}
+          sparse-checkout: deployment/charts
